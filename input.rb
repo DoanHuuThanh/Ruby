@@ -38,6 +38,6 @@ puts m1 + m2
 
       text = gets.chomp
       
-      arr = text.split()
+      arr = text.split() # chuyển từ chuỗi thành mảng
 
       print arr

@@ -75,6 +75,8 @@ puts event(2)
          puts (1..10).include?(2)  #(1..10) tương ứng từ  1 -> 10 không phải mảng
          puts (1...10).include?(10)   #(1...10) tương ứng từ 1 -> 9 không có 10 
 
+         puts (1..9).member?(2) # giống include?
+
 
         s = 'doanthanh'
         puts s[2] # lấy ra kí tự ở vtri 2
@@ -190,8 +192,56 @@ puts event(2)
 
       s1 = (1..8)
       s1.each { |i| print i," "}
+      print "\n"
 
-     
+     t1 =[1,2,3,4,5]
+     t2= t1
+
+     print t1
+     print "\n"
+     print t2
+     print "\n"
+
+     t2[3] = 9 # khi t2 thay đổi t1 cũng thay đổi theo bởi vì t2=t1 là đang trỏ tới t1 chứa không phải sao chép t1 sang t2
+     print  t1
+     print "\n"
+     x = 10 
+
+     def tang(x)
+        x+=1
+        return x
+    end    
+      # truyền x vào hàm tang(x) là chuyển vào 1 bản sao của x ko làm thay đổi giá trị bên ngoài của x
+    print tang(x)
+    print "\n"
+    print x 
+    print "\n"
+
+     f= [1,2,3]
+    # truyền các giá trị nguyên thủy như number,string,symbol,... thì không thay đổi giá trị khi truyền vào hàm 
+    # truyền các đổi tượng là object sẽ thay đổi giá trị của object đó nếu có sửa đổi thêm hay sửa giá trị object đó
+     def arr(f)
+      f << 5
+      return f
+      end
+   # truyền 1 mảng vào hàm arr(f) nếu sửa hay thêm phần tử vào mảng đó sẽ làm thay đổi giá trị của mảng vốn có của nó 
+      print arr(f)
+      print "\n"
+      print f
+      print "\n"
+
+    h1 = "thanh"
+    h2=h3="thanh"
+    puts h1.equal?(h3)   # equal? so sánh 2 đối tượng có trỏ tới cùng 1 vị trí không  h2,h3 cùng trỏ tới 1 vị trí h1 trỏ 1 vị trí riêng
+    puts h3.equal?(h2) 
+  
+     puts (1...10) === 5 # trả về true bởi vì 5 nằm trong khoảng từ 1->9
+
+     puts 1 <=> 5  # trả về -1 nếu giá trị bên trái nhỏ hơn bên phải
+     puts 5 <=> 5 # trả về 0 nếu 2 giá trị bằng nhau
+     puts 9 <=> 5 # trả về 1 nếu giá trị vên phải hơn bên trái
+     puts "1" <=> 5 # trả về nil nếu kiểu dữ liệu chúng khác nhau
+
 
 
 
