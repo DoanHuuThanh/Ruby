@@ -1,4 +1,3 @@
-  require"ruby_lsp/ruby"
 
 puts "helloo"
 
@@ -49,32 +48,6 @@ puts event(2)
 
         puts a1 
 
-        def polar(x,y)
-            theta = Math.atan2(y,x)
-            r= Math.hypot(x,y)
-            [r,theta]
-            end
-
-            puts polar(1,2)
-
-           puts (1..10).include?(2)  #(1..10) tương ứng 1 mảng từ 1 -> 10
-           puts (1...10).include?(10)   #(1..10) tương ứng 1 mảng từ 1 -> 9 không có 10 
-
-           def are_you_sure 
-              while true
-                 print "Are you sure? [y/n]:"
-                 response =gets
-                 case response
-                    when /[a-z]/ # /  / đại diện cho biểu thức chính quy bắt đầu và kết thúc 
-                        return true
-                  when /[nN]/, /^$/ # /^$/ biểu diễn chuỗi rỗng cho biểu thức chính quy , /[nN]] biểu diễn cho 2 kí tự n thường và N hoa khi nhập từ bàn phím
-                    return false 
-                    end
-                    end
-              end
-              
-              puts are_you_sure
-
               puts 2**6 #tương ứng 2 mũ 6
 
                puts 0.05-0.03 ==0.02
@@ -92,11 +65,7 @@ puts event(2)
 
          puts "doan" + " " "thanh "
 
-         alphabet = "A"
-         alphabet < ?B
-         alphabet >?C
-         alphabet <=?D
-         
+ 
         greeting = "Helllo"
         greeting << " " << "Word"
 
@@ -125,7 +94,59 @@ puts event(2)
 
          puts s.length
 
-        s.encoding
-      puts s
+       puts s.encoding
 
+       puts s.bytesize 
+     
+       encoding = Encoding.find("utf-8")
+
+       puts encoding
   
+          
+     $KCODE = "u"
+     mb = "2\303\2272=4" 
+     
+     puts mb.length
+     puts $KCODE.upcase
+
+     mb.each_byte {|b| print b," "} #each_byte
+     print "\n"
+
+      v = [-10..0,0..10,] 
+      puts v
+      puts v[0].include?(3)
+
+      arr= [1,2,3,4,5,6]
+      words = %w[1 2 3 4 5 6]
+      print  words # kq sẽ là ["1", "2", "3", "4", "5", "6"]
+      print "\n"
+      puts arr.length
+      puts arr.size  
+
+      z = (1..10).to_a # tạo 1 mảng từ 1->10,to_a dùng để chuyển đổi 1 đối tượng sang 1 mảng ngoài range còn có hash và set
+      print z 
+          print "\n"
+      print z[0..-1] # duyệt mảng từ phần tử đầu đến phần tử cuối
+      print "\n"
+      
+      z1=[16,1,2,5,2,1,5,1]
+      z1[0,2] = [1,2]  # Nó thay thế các phần tử bắt đầu từ chỉ số 0 và lấy 2 phần tử của mảng [1,2]. Vì vậy, nếu z1ban đầu là [a, b, c, ...], sau dòng này, nó sẽ trở thành [1, 2, c, ...].
+      z1[2...5] = [3,4,5]  # thay thế các phần tử bắt đầu ở chỉ số 2 và kết thúc ở chỉ số 4
+      print z1
+      print "\n"
+    
+       z1[0] = 7
+       z1[2] = [12]
+       print z1
+       print "\n" 
+
+       v1 =[1,2,3,4]
+       v2 = [5,6,7,8]
+
+       puts v1 + v2 
+
+       puts v2
+ 
+     
+   
+     
