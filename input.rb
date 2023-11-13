@@ -21,9 +21,6 @@ puts m1 + m2
 
     puts polar(1,2)
 
-   puts (1..10).include?(2)  #(1..10) tương ứng 1 mảng từ 1 -> 10
-   puts (1...10).include?(10)   #(1..10) tương ứng 1 mảng từ 1 -> 9 không có 10 
-
    def are_you_sure 
       while true
          print "Are you sure? [y/n]:"
@@ -36,3 +33,11 @@ puts m1 + m2
             end
             end
       end
+
+      puts are_you_sure
+
+      text = gets.chomp
+      
+      arr = text.split()
+
+      print arr

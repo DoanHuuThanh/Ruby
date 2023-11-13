@@ -72,6 +72,10 @@ puts event(2)
         puts greeting
 
 
+         puts (1..10).include?(2)  #(1..10) tương ứng từ  1 -> 10 không phải mảng
+         puts (1...10).include?(10)   #(1...10) tương ứng từ 1 -> 9 không có 10 
+
+
         s = 'doanthanh'
         puts s[2] # lấy ra kí tự ở vtri 2
         puts s[-1] # lấy ra kí tự ở vtri cuối cùng của chuỗi
@@ -135,17 +139,62 @@ puts event(2)
       print z1
       print "\n"
     
-       z1[0] = 7
-       z1[2] = [12]
+       z1[0] = 7 # thay thế giá trị pần tử 0 thành 7
+       z1[2] = [12,13,21] # thay thế giá trị 2 thành mảng [12,13,21]
        print z1
        print "\n" 
 
        v1 =[1,2,3,4]
        v2 = [5,6,7,8]
 
-       puts v1 + v2 
+      v3 = v1 + v2 # ghép 2 mảng vào thành 1
 
-       puts v2
+      print v3
+      print "\n"
+
+      x1=[1,1,2,1,5,]
+      x2=[5,1,3,2,4,3,1]
+
+      print x1 | x2 # kết hợp 2 mảng thành 1  sẽ chỉ giữ lại 1 giá trị duy nhất của mỗi phần tử kq là [1,2,5,3,4]
+      print "\n"
+      print x2 | x1  
+      print "\n"
+      print x1 &  x2 # lấy ra các phần tủ giống nhau của x1 & x2 kq là [1,2,5]
+
+      e1 =[0] * 5 #tạo ra mảng gồm 5 phần tử  mỗi phần tử cùng có 1 giá trị 0
+        print "\n"
+      # HASH
+
+      numbers = Hash.new
+      numbers["name"] = "thanh"
+      numbers["diachi"] = "hai duong"
+      numbers["age"] = 2
+
+      puts numbers
+
+
+      employee = [ {
+          "MaNv" => "Nv01",
+          "TenNv" => "Doan Huu Thanh",
+          "Age" => 21
+      },
+       {
+        "MaNv" => "Nv02",
+        "TenNv" => "Nguyen Van Thinh",  
+        "Age" => 22
+       }
+      ]
+
+      print  employee[1]
+      print "\n"
+
+      s1 = (1..8)
+      s1.each { |i| print i," "}
+
+     
+
+
+
  
      
    
