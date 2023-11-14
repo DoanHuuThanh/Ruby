@@ -41,3 +41,15 @@ puts m1 + m2
       a = text.split() # chuyển từ chuỗi thành mảng
 
       print a
+
+
+
+    i = gets.chomp.to_i
+    case i
+ when 1
+   puts "1"
+ when 2
+   puts "2"
+   else
+    puts "khong phai 1 || 2"
+    end
