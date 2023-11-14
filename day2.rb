@@ -405,3 +405,24 @@ puts false if xc == 2 # không thực hiện vì xc =1
         end
 
         puts "Result: #{result}"
+
+       #Thông thường, throw và catch được sử dụng để thoát khỏi một vòng lặp hoặc một phương thức khi một điều kiện đặc biệt xảy ra, và không phải để xử lý lỗi.
+        def throw_catch(data)
+          result = catch(:done) do
+                 data.each do |x|
+                   if x.nil?
+                    throw(:done,"Error : nil in data")
+                    else
+                      puts "item : #{x}"
+                   end
+
+                 end
+          end
+          return result
+        end
+
+        data = [1,2,3,nil,4,1]
+       puts throw_catch(data)
+
+
+       10.times {BEGIN { puts "loop" }}
