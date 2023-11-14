@@ -142,9 +142,266 @@ puts false if xc == 2 # không thực hiện vì xc =1
   puts result.value #15
 
   $i=0
-  while $i < 10
+  while $i < 10 # while thực hiện câu lệnh true
     $i+=1
     print $i," "
     end
 
     print "\n"
+
+     $y = 0
+  until $y > 10 #until thực hiện câu lệnh là false
+    $y += 1
+    print $y," "
+  end
+
+  print "\n"
+
+
+  r = [1,2,3,4,5,6]
+  r.pop # xóa phần tử cuối
+  r.push(3) # thêm vào cuối mảng phần tử 3
+   print r," "
+   print "\n"
+
+   w = [3,5,1,2,5,1]
+   w1 = w.sort # sắp xếp mảng w và gán vào mảng w1
+   print w1.inspect
+    print "\n"
+
+     x =1
+    begin
+      x += 1
+      print x, " "
+      end while x< 10# or until x >=10
+      print "\n"
+
+      fac = 1
+      2.upto(10) { |x| fac *=x}
+        puts fac
+
+        even = (1..10).reject { |x| x % 2 == 0  } # reject được sử dụng để loại bỏ các phần tử của mảng dựa trên một điều kiện được định nghĩa.
+
+        print even, " ", "\n" # kq là  1,3,5,7,9
+
+
+        t = [1,3,4,5,1,2,3,1]
+
+        tong = t.inject(0) {|sum,x| x.even? ? sum+x : sum} # là giá trị khởi tạo của sum, sum =0,inject hay còn đc coi là reduce
+        puts tong
+        max = t.inject {|max , x|  x.even?  ? max > x ? max: x : max }
+        puts max
+
+
+        def sequence(n,m,c)
+             i,s=0,[]
+            while i < n
+              y= m*i + 1
+              yield y if block_given?
+              s<< y
+              i+=1
+            end
+            return s
+        end
+
+
+        result = sequence(4,2,3) {|y| puts y}
+
+        puts result.inspect
+
+        def price
+           yield "won"
+           yield "Đồng"
+           yield "$"
+        end
+
+        price {|y| puts "giá của bạn là 20000 #{y}" }
+
+
+        def example_method
+          yield(self) if block_given?
+        end
+
+        example_method do |obj|
+          puts "Inside the block with #{obj}"
+        end
+
+        def twice
+          if block_given?
+          yield
+          yield
+          else
+
+          end
+         end
+
+         twice
+
+
+         iterator = 9.downto(1) # An enumerator as external iterator
+         begin # So we can use rescue below
+          print iterator.next while true # Call the next method repeatedly
+         rescue StopIteration # When there are no more values
+          puts "...blastoff!" # An expected, nonexceptional condition
+         end
+
+         iterator = 3.downto(1)
+
+         begin
+           loop do
+             puts iterator.next
+           end
+         rescue StopIteration
+           puts "Iteration finished!"
+         end
+
+
+          count = 0
+
+          loop do # loop  end  trong ruby là cấu trúc lặp vô hạn đến khi có câu lệnh break;hoặc 1 exception
+            puts "This is iteration number #{count}"
+             count +=1
+             if count >=5
+                  break;
+             end
+          end
+
+
+           # sử lí ngoại lệ trong ruby
+          def tinh(a,b)
+            result = nil
+            begin
+              result = a / b  #mã có thể tạo ra ngoại lệ
+            rescue ZeroDivisionError => e
+              puts "Error : #{e}"  #xử lí ngoại lệ
+              else
+                puts "Result : #{result}" # mã chạy khi ko có ngoại lệ
+            ensure
+              puts "Ensure block alaway run" # luôn luôn chạy cuối cùng bất kể có ngoại lệ
+           end
+          end
+
+
+          tinh(10,0)
+          tinh(10,2)
+
+
+          a1 = (1..6)
+          a2= [1,2,3]
+
+         def sequence(*enumber,&block)
+             enumber.each {
+                  |enumber| enumber.each(&block) # chuyển khối mã vào each không được dùng yield
+             }
+         end
+           # *enumber là một cú pháp để chấp nhận một số lượng biến đối số không xác định (nhiều đối số) và gói chúng vào một mảng.
+           # Khi bạn gọi hàm và truyền nhiều đối số, *enumerables sẽ gói tất cả các đối số vào một mảng duy nhất
+          sequence(a1,a2) {|x| print x," "}  #  mảng đc truyền vào hàm sequence là [a1,a2], [(1..6),[1,2,3]]
+          print "\n"
+
+          #PROC
+
+            # proc đại diện cho 1 đoanj mã
+
+            my_proc = proc {|x| puts x*2}
+             my_proc.call(5) # my_proc.call thể thực thi proc
+
+             #có thể truyền proc vào nhiều method khác nhau
+             #vd
+                  arr = [1,2,3,4,5,6]
+                 my_proc1 = proc {|x| x*3}
+               new_a = arr.map(&my_proc1)
+                      print new_a," "
+                   print "\n"
+                my_proc2 = proc {|i| i %2 ==0}
+                new_b = arr.select(&my_proc2)
+                print new_b," "
+                print "\n"
+
+                arr_collection = arr.collect do |x| # khi nhiều dòng nên dùng do thay  vì {}, collect tươn tự map
+                  if x < 3
+                    0
+                  else
+                    [x,x * x]
+                  end
+                end
+           print arr_collection
+           print "\n"
+
+            arr.sort! {|x,y| x<=>y} # sắp xếp tăng dần
+            print arr
+            print "\n"
+
+            arr.sort! {|x,y| y<=>x} # sắp xếp giảm dần
+            print arr
+            print "\n"
+
+
+   def example(&block)
+       block.call(1,2) if block_given?
+   end
+
+      example { |x,y| puts "giá trị của từng tham số x:#{x}, y:#{y}"}
+
+      #truyền mảng hoặc hash
+      def xample(&block)
+          yield([1,2,3]) if block_given?
+      end
+
+      xample do |arr|
+          x,y,z = arr
+          puts "giả trị của x =#{x}, y=#{y}, z=#{z}"
+      end
+
+      def five(&block)
+         yield(1,2,3,4,5) if block_given?
+         end
+
+      five do |x,*y,z|
+         print x, " ",y, " ",z # x =1 y =[2,3,4] z = 5
+      end
+
+      print "\n"
+
+
+
+
+      b1 = 0
+      begin
+          raise " #{b1} khong the nho hon 3" if b1  <= 3
+          puts b1
+      rescue => e
+           puts e.message
+           b1+=1
+           retry if b1 <= 4
+       ensure
+        puts "Chuong trình hoàn tất"
+
+        end
+
+        def connect_db(number)
+          n = number
+          i=0
+          while i < 5
+            n-=1
+            i+=1
+            puts n
+           # raise ArgumentError, "Credentials missing" if n == 3 # trả về 1 ngoại lệ nếu n  = 3
+          end
+
+        end
+
+         connect_db(5)
+
+
+         result = catch (:done) do
+          10.times do |i|
+            5.times do |j|
+              if i + j > 5
+                throw :done, i * j
+              end
+            end
+          end
+        end
+
+        puts "Result: #{result}"
