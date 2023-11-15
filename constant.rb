@@ -47,3 +47,15 @@ ERROR_MESSAGE_INVALID_INPUT = "Invalid input"
 # Constants for user interface
 DEFAULT_FONT_SIZE = 16
 DEFAULT_THEME = "light"
+
+#Database Configuration: Sử dụng các hằng để lưu trữ thông tin cấu hình của cơ sở dữ liệu như host, port, username, password, và tên cơ sở dữ liệu.
+
+#API Endpoints: Định nghĩa các hằng cho các đường dẫn của API để tránh việc lặp lại định dạng trong toàn bộ mã nguồn.
+
+#User Roles: Định nghĩa các hằng cho các vai trò người dùng, chẳng hạn như "admin" và "user".
+
+#Application Settings: Sử dụng các hằng cho các cài đặt của ứng dụng như thời gian chờ mặc định, số lần thử lại tối đa, và cấp độ ghi log.
+
+#Error Messages: Xác định các hằng cho các thông báo lỗi chuẩn, giúp duy trì sự đồng nhất trong toàn bộ ứng dụng.
+
+#User Interface: Sử dụng các hằng cho cài đặt giao diện người dùng như kích thước font mặc định, chủ đề mặc định.

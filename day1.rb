@@ -248,7 +248,7 @@ puts event(2)
         puts msg
 
 
-       result = 1.1.coerce(2)
+
        puts result.inspect
 
 

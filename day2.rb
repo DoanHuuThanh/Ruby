@@ -423,6 +423,3 @@ puts false if xc == 2 # không thực hiện vì xc =1
 
         data = [1,2,3,nil,4,1]
        puts throw_catch(data)
-
-
-       10.times {BEGIN { puts "loop" }}
