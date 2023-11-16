@@ -185,3 +185,69 @@ def test_return
 end
 
 test_return
+
+def iterator(&proc)
+  puts "entering iterator"
+  proc.call # Gọi proc, nhưng nếu proc chứa break, nó sẽ tạo ra ngoại lệ LocalJumpError
+  puts "exiting iterator" # Dòng này sẽ không được thực thi nếu proc chứa break
+end
+
+def test
+  iterator { puts "entering proc"; break }
+end
+ # Trong Ruby, khi bạn sử dụng break trong một Proc hoặc lambda, nó sẽ tạo ra một ngoại
+ # lệ là LocalJumpError nếu không có vòng lặp nào để thoát. Tuy nhiên, trong ví dụ của bạn,
+ # không có vòng lặp xung quanh Proc để thoát, nên nó sẽ tạo ra ngoại lệ và ngừng thực thi các dòng mã tiếp theo.
+test
+
+
+
+def test
+  puts "entering test method"
+
+  begin
+    lambda = lambda { puts "entering lambda"; break; puts "exiting lambda" }
+    lambda.call
+    puts "entering test method"
+  rescue LocalJumpError
+    puts "Caught LocalJumpError"  # Ngoại lệ sẽ được bắt và in ra thông báo này
+  end
+
+  puts "exiting test method"
+end
+
+test
+
+
+am=[1,2,3,4,5,6,7]
+def ham_proc(arr)
+arr.each do |x|
+  puts x
+  if x ==3
+ return; # khi x =3 dừng proc lại luôn, còn break thì hàm tiếp tục chạy và kq vẫn là 1,2,3,hahaa
+  end
+end
+puts "hahaha"
+end
+
+ham_proc(am)
+
+
+
+def sequence2(a,b,c,d)
+  i=0
+  while i < a
+     d.call(b*i+c)
+     i+=1
+  end
+  puts "haha"
+end
+
+d = lambda do |x|
+  if x == 12
+    return   # là lamda chỉ dừng hàm lambda thoii chương trình vẫn tiếp tục còn proc chương trình dừng thực thi
+end
+print x," "
+end
+
+sequence2(3,5,7,d) #kq vẫn là 7 17 haha còn nếu là proc thì kq chỉ là 7
