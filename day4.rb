@@ -306,7 +306,7 @@ class Tinh
     @x, @y = x,y
     end
 
-    def Tinh.sum(*point) # hoặc Tinh.sum(*point)
+    def Tinh.sum(*point) # hoặc seft.sum(*point)
       x,y = 0,0
       point.each do |p|
         x += p.x
@@ -368,7 +368,7 @@ s = Tinh.sum(s1,s2,s3)
       @x = x
       @y = y
 
-      @@totalX +=x
+      @@totalX +=xda
       @@totalY +=y
      end
 
