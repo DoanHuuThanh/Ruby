@@ -381,5 +381,5 @@ s = Tinh.sum(s1,s2,s3)
 
     x1 = So.new(1,2) #instance variable sẽ thay đổi theo mỗi đối tưởng ở đây x=1,y=2
     So.respond  #khi khoi tạo x1 vs x=1,y=2 @totalX = 1, @totaly = 2
-    x2 = So.new(3,4)  #khi khoi tạo x2 vs x=3,y=4 @totalX = 1+3, @totaly = 2+4, ở đây 2=3,y=4
+    x2 = So.new(3,4)  #khi khoi tạo x2 vs x=3,y=4 @totalX = 1+3, @totaly = 2+4, ở đây x=3,y=4
     So.respond  #kq là @totalX = 4 , @totalY =7
