@@ -406,14 +406,14 @@ dog.fly # khi class ko có method fly nó sẽ gọi đến method_missing,
           # Thêm một phương thức đơn lẻ vào strict_obj
            eigenclass.class_eval do # tự động in ra "Warning: singleton #{name} added to a Strict object khi 1 method mới đc thêm vào
              def single
-              puts "hello" 
+              puts "hello"
               end
           end
 
           #singleton_method_added là 1 hook method sẽ tự động kích hoạt khi 1 singleton_method đc thêm vào 1 class
 
 
-        
+
          #initialize: Được gọi khi một đối tượng được khởi tạo. Đây là nơi tốt để thiết lập trạng thái ban đầu của đối tượng.
          #method_missing: Được gọi khi một phương thức không tồn tại được gọi. Cho phép bạn xử lý các phương thức không được định nghĩa trước.
          #singleton_method_added: Được gọi khi một phương thức singleton mới được thêm vào đối tượng.
@@ -426,39 +426,34 @@ dog.fly # khi class ko có method fly nó sẽ gọi đến method_missing,
             puts "Hello from MyModule!"
           end
         end
-        
+
         class MyClass
           prepend MyModule2
-        
+
           def hello
             puts "Hello from MyClass!"
           end
         end
-        
+
         obj = MyClass.new
         obj.hello  # kq :Ruby sẽ tìm kiếm phương thức trong module MyModule trước tiên, do vị trí prepend.
         #Do đó, phương thức hello của MyModule được gọi đầu tiên và in ra chuỗi "Hello from MyModule!". Hello from MyModule! ,prepend ưu tiên module hơn
-        #và sẽ ưu tiên lấy các method trong module 
+        #và sẽ ưu tiên lấy các method trong module
 
         class MyClass1
           def self.method_added(method_name)
             puts "Method '#{method_name}' added to MyClass!"
           end
-        
+
           def self.method_removed(method_name)
             puts "Method '#{method_name}' removed from MyClass!"
           end
-        
+
           def new_method
             puts "Hello from new_method!"
           end
-        
+
           remove_method :new_method
         end
-        
+
   m1 = MyClass1.new
-
-
-        
-
-
